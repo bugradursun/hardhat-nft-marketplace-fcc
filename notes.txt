@@ -1,0 +1,38 @@
+reentrancy attacks
+-Inherits our contract and reenters to our deposit fnc by creating  a fallback fnc
+2 ways to prevent that :
+-before we deposit money in the fnc set msg.sender balance to 0,with that after we deposit 
+they cant pass the require state.
+2-use mutex from openzeppelin,add require(!locked,"revert") in the beginning of the withdraw fnc!!!
+require(!locked,"revert")
+locked=true
+...
+...
+...
+...
+... en sona
+locked=false
+
+
+also reentranceguard by openzeppelin will provide security 
+
+SUMMARY:
+change your msg.senders balance before you execute external fnc
+add safetransferfrom fnc in the bottom
+--------------------------------------------------------------------------------------------------------
+TESTING
+
+xContract=await ethers.getContract("x")
+x =await xContract.connect(player) --- player,deployer... kim baglancaksa
+ YA DA 
+
+ xContract = await ethers.getContract("x",player)
+-------------------------------------------------------------------------------------------
+https://github.com/Fantom-foundation/Artion-Contracts/blob/5c90d2bc0401af6fb5abf35b860b762b31dfee02/contracts/FantomMarketplace.sol
+Check this out later
+-------------------------------------------------------------------------------------------------------------------
+ARTIFACT ERROR HH702:
+check artifacts=>contracts=> json file to ensure contract name and path are correct
+also check deploy script to ensure the name of the contract
+generally case sensitive names cause this
+--------------------------------------------------------------------------------------------------
