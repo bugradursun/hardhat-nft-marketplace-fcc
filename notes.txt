@@ -36,3 +36,5 @@ check artifacts=>contracts=> json file to ensure contract name and path are corr
 also check deploy script to ensure the name of the contract
 generally case sensitive names cause this
 --------------------------------------------------------------------------------------------------
+It is important that transactions are executed only if conditions for safety are satisfied. It the conditions dont meet the requirements, then we can restrict access for a smart contract fncs until predetermined delay with timelock
+-A timelock is a mechanism for delaying the execution of functions in smart contract. timelock contracts implement modifiers that alther the behavior of functions such that those functions can not be called until a specified time!(for example in a bidding dapp where you cant vote in out of bidding time).
